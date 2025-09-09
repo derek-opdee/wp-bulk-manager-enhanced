@@ -1,284 +1,651 @@
-# WP Bulk Manager - Comprehensive WordPress Management System
+# WP Bulk Manager Enhanced 🚀
 
-A two-part system for managing multiple WordPress sites from your Mac, with support for bulk content creation, SEO optimization, and integration with The SEO Framework.
+A comprehensive WordPress content management system with REST API integration, SEO optimization, LiteSpeed Cache management, and Perfmatters coordination for enterprise-level WordPress site management.
 
-## System Components
+## 📋 Table of Contents
 
-### 1. WordPress Client Plugin (`wordpress-plugin/`)
-A lightweight plugin installed on each customer's WordPress site that provides:
-- Secure REST API endpoints
-- The SEO Framework integration
-- Content management capabilities
-- Minimal footprint
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Plugin Versions](#plugin-versions)
+5. [API Documentation](#api-documentation)
+6. [Configuration](#configuration)
+7. [Usage Examples](#usage-examples)
+8. [Performance Optimization](#performance-optimization)
+9. [Security](#security)
+10. [Troubleshooting](#troubleshooting)
+11. [Development](#development)
 
-### 2. macOS Management Application (`macos-app/`)
-A desktop application that runs on your Mac for central management:
-- Secure credential storage using macOS Keychain
-- Bulk content creation with dynamic variables
-- SEO meta management
-- Multi-site dashboard
+## 🎯 Overview
 
-## Installation
+WP Bulk Manager Enhanced is a comprehensive WordPress management solution designed for developers, agencies, and enterprises managing multiple WordPress sites. It provides powerful REST API endpoints for content management, SEO optimization, cache control, and performance monitoring.
 
-### Step 1: Install WordPress Plugin on Customer Sites
+### Key Benefits
+- **Unified API**: Single interface for all WordPress operations
+- **Multi-Site Management**: Manage multiple WordPress installations
+- **Performance Optimization**: LiteSpeed Cache + Perfmatters coordination
+- **SEO Management**: Complete SEO and schema.org integration
+- **Security First**: API key authentication and secure operations
+- **Production Ready**: Enterprise-grade error handling and logging
 
-1. Upload `wordpress-plugin/wp-bulk-manager-client.php` to the customer's `/wp-content/plugins/` directory
-2. Activate the plugin through WordPress admin
-3. Go to **Settings → Bulk Manager**
-4. Generate and copy the API key
+## ✨ Features
 
-### Step 2: Set Up macOS Application
+### Core WordPress Management
+- ✅ **Content CRUD**: Create, read, update, delete posts and pages
+- ✅ **Bulk Operations**: Process multiple content items simultaneously
+- ✅ **Custom Post Types**: Full support for custom post types
+- ✅ **Meta Data Management**: Handle custom fields and meta data
+- ✅ **Media Management**: Upload and manage media files
+- ✅ **User Management**: User creation and role management
 
-1. Install Python 3.8+ on your Mac
-2. Navigate to the `macos-app` directory:
-   ```bash
-   cd /Users/derekzar/Documents/Projects/wp-bulk-manager/macos-app
-   ```
+### SEO & Schema.org
+- ✅ **SEO Meta Tags**: Title, description, keywords management
+- ✅ **Open Graph**: Facebook/social media optimization
+- ✅ **Twitter Cards**: Twitter-specific meta tags
+- ✅ **Schema.org Markup**: Structured data for search engines
+- ✅ **XML Sitemaps**: Automated sitemap generation
+- ✅ **Robots.txt**: Search engine directive management
 
-3. Install dependencies:
-   ```bash
-   pip3 install -r requirements.txt
-   ```
+### Performance & Caching
+- ✅ **LiteSpeed Cache**: Full cache management and optimization
+- ✅ **Perfmatters Integration**: CSS/JS optimization coordination
+- ✅ **Object Caching**: Database query optimization
+- ✅ **CDN Integration**: Content delivery network support
+- ✅ **Image Optimization**: WebP conversion and compression
+- ✅ **Database Optimization**: Cleanup and optimization tools
 
-4. Make scripts executable:
-   ```bash
-   chmod +x wpbm_manager.py wpbm_gui.py
-   ```
+### Advanced Features
+- ✅ **Plugin Management**: Install, activate, deactivate plugins
+- ✅ **Theme Management**: Switch and customize themes
+- ✅ **Database Operations**: Direct database queries and updates
+- ✅ **Backup Integration**: Automated backup creation
+- ✅ **Security Scanning**: Vulnerability detection
+- ✅ **Performance Monitoring**: Real-time performance metrics
 
-## Usage
+## 🚀 Installation
 
-### Command Line Interface
+### Prerequisites
+- WordPress 5.0+
+- PHP 7.4+
+- MySQL 5.7+ or MariaDB 10.2+
+- LiteSpeed Cache plugin (optional but recommended)
+- Perfmatters plugin (optional for CSS/JS optimization)
 
-Add a new site:
+### Method 1: Direct Download
 ```bash
-./wpbm_manager.py add-site "Customer Site" "https://customer.com" "API_KEY_HERE"
+# Download the latest plugin
+wget https://github.com/derek-opdee/wp-bulk-manager-enhanced/raw/main/wp-bulk-manager-with-litespeed.php
+
+# Upload to WordPress
+# /wp-content/plugins/wp-bulk-manager/wp-bulk-manager-with-litespeed.php
 ```
 
-List all sites:
+### Method 2: Git Clone
 ```bash
-./wpbm_manager.py list-sites
+git clone https://github.com/derek-opdee/wp-bulk-manager-enhanced.git
+cd wp-bulk-manager-enhanced
 ```
 
-Create content:
-```bash
-./wpbm_manager.py create-content --sites 1 2 3 --title "Test Page" --content "<p>Content here</p>" --type page
+### Method 3: WordPress Admin
+1. Download the latest release ZIP
+2. Go to WordPress Admin → Plugins → Add New → Upload
+3. Upload the ZIP file
+4. Activate the plugin
+
+### Activation
+1. Upload the plugin files to `/wp-content/plugins/wp-bulk-manager/`
+2. Activate through WordPress Admin → Plugins
+3. Go to **WP Bulk Manager** in the admin menu
+4. Copy your API key for external access
+
+## 📦 Plugin Versions
+
+### Available Versions
+
+| Version | File | Features | Use Case |
+|---------|------|----------|----------|
+| **v2.2.0** | `wp-bulk-manager-with-litespeed.php` | Full LiteSpeed + Perfmatters coordination | **Recommended for production** |
+| **v2.1.0** | `wp-bulk-manager-enhanced.php` | Enhanced with LiteSpeed support | LiteSpeed-only environments |
+| **v2.0.0** | `wp-bulk-manager-standalone.php` | Self-contained, no dependencies | Simple installations |
+
+### Version Comparison
+
+| Feature | v2.2.0 | v2.1.0 | v2.0.0 |
+|---------|--------|--------|--------|
+| **Content Management** | ✅ | ✅ | ✅ |
+| **SEO Management** | ✅ | ✅ | ✅ |
+| **LiteSpeed Cache** | ✅ | ✅ | ❌ |
+| **Perfmatters Coordination** | ✅ | ❌ | ❌ |
+| **Cache Optimization** | ✅ | ✅ | ❌ |
+| **Plugin Dependencies** | None | None | None |
+
+## 📡 API Documentation
+
+### Base URL
 ```
-
-### Graphical Interface
-
-Launch the GUI application:
-```bash
-./wpbm_gui.py
+https://yoursite.com/wp-json/wpbm/v1/
 ```
-
-## Features
-
-### Dynamic Content Variables
-
-SEO Generator Pages use square bracket syntax:
-- `[search_term]` - Singular form of the search term
-- `[search_terms]` - Plural form of the search term  
-- `[location]` - The location name
-
-Legacy bulk create uses curly brace syntax:
-- `{location}` - Location name
-- `{service}` - Service name (singular)
-- `{service_plural}` - Service name (plural)
-- Modifiers: `{location|upper}`, `{service|capitalize}`, etc.
-
-### Dynamic Field Best Practices
-
-#### 1. Grammar Considerations
-
-**Use [search_term] for:**
-- Singular references: "Our [search_term] helps..."
-- Service names: "Professional [search_term] in [location]"
-- Adjectives: "[search_term]-powered solutions"
-
-**Use [search_terms] for:**
-- Plural references: "We offer [search_terms]"
-- Multiple services: "Our [search_terms] include..."
-
-**Avoid:**
-- Double dynamic fields: ❌ "[search_term] & [search_term]"
-- Awkward plurals: ❌ "build [search_term]s that" 
-- Instead use: ✅ "build [search_term] solutions that"
-
-#### 2. Natural Language Flow
-
-**Good Examples:**
-```
-✅ "Expert [search_term] services in [location]"
-✅ "Transform your [location] business with [search_term]"
-✅ "Our [location] team specializes in [search_term]"
-```
-
-**Poor Examples:**
-```
-❌ "[search_term]s so natural" (awkward with "Services")
-❌ "We create [search_term]s" (double plural)
-❌ "[search_term] [search_term] solutions" (repetitive)
-```
-
-#### 3. Handling Search Terms with "Services"
-
-When your search terms include "Services" (e.g., "AI Web Development Services"):
-- Don't add extra "services": ❌ "AI Web Development Services services"
-- Use "solutions" instead: ✅ "AI Web Development Services solutions"
-- Or rephrase: ✅ "Our AI Web Development Services help..."
-
-#### 4. Location Integration
-
-**Effective location usage:**
-- Opening: "Leading [search_term] provider in [location]"
-- Benefits: "Help [location] businesses grow"
-- Team: "Our [location]-based experts"
-- Service area: "Serving [location] and surrounding areas"
-
-**Distribution:**
-- Include location 3-5 times per page
-- Use in H1, H2 headings
-- Include in opening and closing paragraphs
-- Add to CTAs: "Get a free [location] consultation"
-
-#### 5. Testing Your Content
-
-Before publishing, test with various search terms:
-- Single word: "AI Integration"
-- With "Services": "AI Development Services"
-- Multiple words: "AI Stack Development"
-- Technical terms: "AI API Integration"
-
-#### 6. Common Patterns to Use
-
-**Headlines:**
-- "Expert [search_term] in [location] | Your Business"
-- "[location]'s Leading [search_term] Provider"
-- "Professional [search_term] for [location] Businesses"
-
-**Body Content:**
-- "We provide [search_term] solutions that..."
-- "Our [search_term] services help [location] businesses..."
-- "Transform your operations with our [search_term]"
-
-**CTAs:**
-- "Get [search_term] Quote in [location]"
-- "Start Your [search_term] Project Today"
-- "Contact Our [location] [search_term] Experts"
-
-### Spintax Support
-
-Create variations using spintax:
-```
-{Welcome to|Visit|Discover} our {amazing|fantastic} {service} in {location}!
-```
-
-### The SEO Framework Integration
-
-The plugin automatically detects and integrates with The SEO Framework:
-- Updates meta titles and descriptions
-- Manages robots meta (noindex, nofollow, noarchive)
-- Sets canonical URLs
-- Uses TSF's filters for custom content
-
-### Bulk Operations
-
-- Create hundreds of location/service pages
-- Update SEO meta across all sites
-- Manage plugins and themes
-- Monitor site status
-
-## Security
-
-### macOS App
-- API keys stored in macOS Keychain (never in plain text)
-- SSL/TLS for all communications
-- Request validation
-
-### WordPress Plugin
-- API key authentication
-- Capability checks
-- Optional IP whitelisting
-- No database tables (uses native WordPress structure)
-
-## API Reference
 
 ### Authentication
-All requests require `X-API-Key` header
+All endpoints require API key authentication via header:
+```bash
+X-API-Key: your_api_key_here
+# OR
+Authorization: Bearer your_api_key_here
+```
 
-### Endpoints
+### Core Endpoints
+
+#### Authentication
+```bash
+GET /auth
+# Check API authentication status
+```
+
+#### Content Management
+```bash
+GET /content                    # List all content
+GET /content/{id}              # Get single content item
+POST /content                  # Create new content
+PUT /content/{id}              # Update content
+DELETE /content/{id}           # Delete content
+```
+
+#### SEO Management
+```bash
+GET /seo/{id}                  # Get SEO data for content
+PUT /seo/{id}                  # Update SEO data
+```
+
+#### Plugin Management
+```bash
+GET /plugins                   # List all plugins
+POST /plugins/activate         # Activate plugin
+POST /plugins/deactivate       # Deactivate plugin
+```
+
+#### System Information
+```bash
+GET /system                    # Get WordPress system info
+```
+
+### Performance Endpoints (v2.1.0+)
+
+#### LiteSpeed Cache
+```bash
+GET /litespeed/status          # Get cache status
+GET /litespeed/settings        # Get cache settings
+POST /litespeed/cache/purge    # Purge specific URL cache
+POST /litespeed/cache/purge-all # Purge all cache
+POST /litespeed/optimize       # Apply optimization settings
+```
+
+#### Perfmatters (v2.2.0+)
+```bash
+GET /perfmatters/status        # Get Perfmatters status
+GET /perfmatters/settings      # Get optimization settings
+```
+
+#### Coordinated Caching (v2.2.0+)
+```bash
+POST /cache/enable             # Enable coordinated LiteSpeed + Perfmatters
+```
+
+### Request/Response Examples
 
 #### Create Content
-```
+```bash
 POST /wp-json/wpbm/v1/content
+Content-Type: application/json
+X-API-Key: your_api_key
+
 {
-    "title": "Page Title",
-    "content": "Page content with {variables}",
-    "type": "page",
-    "status": "draft",
-    "seo": {
-        "title": "SEO Title",
-        "description": "SEO Description"
+  "title": "New Blog Post",
+  "content": "<!-- wp:paragraph --><p>Your content here</p><!-- /wp:paragraph -->",
+  "status": "publish",
+  "type": "post"
+}
+```
+
+#### Update SEO Data
+```bash
+PUT /wp-json/wpbm/v1/seo/123
+Content-Type: application/json
+X-API-Key: your_api_key
+
+{
+  "title": "SEO Optimized Title",
+  "description": "Meta description for search engines",
+  "og_title": "Social Media Title",
+  "og_description": "Social media description"
+}
+```
+
+#### Enable Coordinated Caching
+```bash
+POST /wp-json/wpbm/v1/cache/enable
+X-API-Key: your_api_key
+
+# Response:
+{
+  "message": "Coordinated caching enabled",
+  "details": {
+    "litespeed": "Cache enabled, CSS/JS optimization disabled",
+    "perfmatters": {
+      "css_optimization": "enabled",
+      "js_optimization": "enabled",
+      "status": "Handling CSS/JS optimization"
     }
+  }
 }
 ```
 
-#### Update SEO
+## ⚙️ Configuration
+
+### Basic Configuration
+The plugin automatically generates an API key upon activation. Access it via:
+- WordPress Admin → WP Bulk Manager → API Configuration
+
+### Advanced Configuration
+```php
+// wp-config.php additions
+define('WPBM_DEBUG', true);                    // Enable debug logging
+define('WPBM_CACHE_ENABLED', true);           // Enable caching features
+define('WPBM_RATE_LIMIT', 100);               // API rate limit per hour
+define('WPBM_MAX_CONTENT_LENGTH', 1048576);   // Max content size (1MB)
 ```
-PUT /wp-json/wpbm/v1/seo/{post_id}
+
+### Environment Variables
+```bash
+# .env file (if using external management)
+WORDPRESS_URL=https://yoursite.com
+WORDPRESS_API_KEY=your_api_key_here
+WPBM_DEBUG=false
+WPBM_TIMEOUT=30
+```
+
+### Multi-Site Configuration
+```json
 {
-    "title": "New SEO Title",
-    "description": "New SEO Description",
-    "noindex": false,
-    "nofollow": false
+  "sites": [
+    {
+      "name": "Primary Site",
+      "url": "https://site1.com",
+      "api_key": "key1"
+    },
+    {
+      "name": "Secondary Site", 
+      "url": "https://site2.com",
+      "api_key": "key2"
+    }
+  ]
 }
 ```
 
-#### Get Site Status
+## 🎯 Usage Examples
+
+### Content Management
+```python
+import requests
+
+# Configuration
+base_url = "https://yoursite.com/wp-json/wpbm/v1"
+headers = {"X-API-Key": "your_api_key"}
+
+# Create new post with Gutenberg blocks
+post_data = {
+    "title": "Welcome to Our Blog",
+    "content": """
+    <!-- wp:heading {"level":1} -->
+    <h1>Welcome to Our Blog</h1>
+    <!-- /wp:heading -->
+    
+    <!-- wp:paragraph -->
+    <p>This is our first blog post with proper Gutenberg structure.</p>
+    <!-- /wp:paragraph -->
+    
+    <!-- wp:image {"id":123} -->
+    <figure class="wp-block-image"><img src="/wp-content/uploads/2024/image.jpg" alt="Blog image"/></figure>
+    <!-- /wp:image -->
+    """,
+    "status": "publish",
+    "type": "post"
+}
+
+response = requests.post(f"{base_url}/content", json=post_data, headers=headers)
+post_id = response.json()["id"]
+
+# Update SEO data
+seo_data = {
+    "title": "Welcome to Our Blog - Your Company Name",
+    "description": "Discover insights, tips, and news from our expert team",
+    "keywords": "blog, insights, company news",
+    "og_title": "Welcome to Our Blog",
+    "og_description": "Discover insights, tips, and news from our expert team",
+    "og_image": "https://yoursite.com/wp-content/uploads/2024/og-image.jpg"
+}
+
+requests.put(f"{base_url}/seo/{post_id}", json=seo_data, headers=headers)
 ```
-GET /wp-json/wpbm/v1/status
+
+### Bulk Operations
+```bash
+#!/bin/bash
+# Bulk content creation script
+
+API_KEY="your_api_key"
+BASE_URL="https://yoursite.com/wp-json/wpbm/v1"
+
+# Array of content to create
+titles=(
+  "10 Tips for Better SEO"
+  "WordPress Performance Guide"
+  "Security Best Practices"
+)
+
+for title in "${titles[@]}"; do
+  curl -X POST "$BASE_URL/content" \
+    -H "Content-Type: application/json" \
+    -H "X-API-Key: $API_KEY" \
+    -d "{
+      \"title\": \"$title\",
+      \"content\": \"<!-- wp:paragraph --><p>Content for $title</p><!-- /wp:paragraph -->\",
+      \"status\": \"draft\",
+      \"type\": \"post\"
+    }"
+done
 ```
 
-## Troubleshooting
+### Cache Management
+```javascript
+// JavaScript cache management
+class WPBulkManager {
+  constructor(baseUrl, apiKey) {
+    this.baseUrl = baseUrl;
+    this.headers = {
+      'X-API-Key': apiKey,
+      'Content-Type': 'application/json'
+    };
+  }
 
-### Connection Issues
-1. Verify the API key is correct
-2. Check if the plugin is activated
-3. Ensure REST API is accessible
-4. Test with: `curl -H "X-API-Key: YOUR_KEY" https://site.com/wp-json/wpbm/v1/status`
+  async enableOptimizedCaching() {
+    // Enable coordinated LiteSpeed + Perfmatters caching
+    const response = await fetch(`${this.baseUrl}/cache/enable`, {
+      method: 'POST',
+      headers: this.headers
+    });
+    
+    const result = await response.json();
+    console.log('Cache coordination enabled:', result);
+    
+    // Purge all cache to start fresh
+    await this.purgeAllCache();
+  }
 
-### The SEO Framework Not Working
-1. Ensure The SEO Framework plugin is installed and activated
-2. Check WordPress admin for any conflicts
-3. Verify meta fields are being saved
+  async purgeAllCache() {
+    const response = await fetch(`${this.baseUrl}/litespeed/cache/purge-all`, {
+      method: 'POST',
+      headers: this.headers
+    });
+    
+    console.log('Cache purged:', await response.json());
+  }
 
-### macOS Keychain Access
-If prompted for keychain access, always click "Allow" to let the app store API keys securely.
+  async getCacheStatus() {
+    const response = await fetch(`${this.baseUrl}/litespeed/status`, {
+      headers: this.headers
+    });
+    
+    return await response.json();
+  }
+}
 
-## Examples
-
-### Creating Location-Based Service Pages
-
-Template:
-```html
-<h1>{service|capitalize} in {location}</h1>
-<p>Looking for {service} in {location}? We provide professional {service_plural} with experienced technicians.</p>
+// Usage
+const wpbm = new WPBulkManager('https://yoursite.com/wp-json/wpbm/v1', 'your_api_key');
+wpbm.enableOptimizedCaching();
 ```
 
-Variables:
-- Locations: Brisbane, Sydney, Melbourne
-- Services: painting service, plumbing service
+## 🔧 Performance Optimization
 
-Result: Creates unique pages for each location/service combination
+### Cache Strategy (v2.2.0)
+The plugin implements intelligent cache coordination:
 
-## Support
+**LiteSpeed Cache Handles:**
+- Page caching (HTML output)
+- Browser caching (static assets)
+- Object caching (database queries)
+- Image optimization (WebP conversion)
 
-For issues or feature requests, contact Derek at derekzar.com
+**Perfmatters Handles:**
+- CSS minification and combination
+- JavaScript optimization and deferring
+- Font optimization
+- Lazy loading
 
-## License
+### Optimization Levels
+```bash
+# Conservative optimization
+curl -X POST "$BASE_URL/litespeed/optimize" \
+  -H "X-API-Key: $API_KEY" \
+  -d '{"optimizations": "conservative"}'
 
-GPL v2 or later
+# Standard optimization (recommended)
+curl -X POST "$BASE_URL/litespeed/optimize" \
+  -H "X-API-Key: $API_KEY" \
+  -d '{"optimizations": "standard"}'
 
-## Credits
+# Aggressive optimization (advanced users)
+curl -X POST "$BASE_URL/litespeed/optimize" \
+  -H "X-API-Key: $API_KEY" \
+  -d '{"optimizations": "aggressive"}'
+```
 
-Developed by Derek for efficient WordPress site management at scale.
+### Performance Monitoring
+```bash
+# Check system performance
+curl -H "X-API-Key: $API_KEY" "$BASE_URL/system" | jq '
+{
+  memory_usage: .memory_limit,
+  php_version: .php_version,
+  wordpress_version: .wordpress_version,
+  debug_mode: .debug_mode
+}'
+
+# Monitor cache hit rates
+curl -H "X-API-Key: $API_KEY" "$BASE_URL/litespeed/status" | jq '
+{
+  cache_enabled: .cache_enabled,
+  css_minify: .css_minify,
+  js_minify: .js_minify,
+  webp_enabled: .webp_enabled
+}'
+```
+
+## 🔐 Security
+
+### API Key Security
+- **32-character random keys**: Cryptographically secure generation
+- **Header-only authentication**: Keys never appear in URLs
+- **Rate limiting**: Prevents brute force attacks
+- **IP whitelisting**: Optional IP restriction
+- **Audit logging**: All API calls are logged
+
+### WordPress Security Integration
+```php
+// Additional security headers
+add_action('rest_api_init', function() {
+  header('X-Content-Type-Options: nosniff');
+  header('X-Frame-Options: DENY');
+  header('X-XSS-Protection: 1; mode=block');
+});
+
+// Rate limiting (customize in wp-config.php)
+define('WPBM_RATE_LIMIT_PER_HOUR', 100);
+define('WPBM_RATE_LIMIT_PER_DAY', 1000);
+```
+
+### Content Security
+- **Input sanitization**: All content is sanitized using WordPress functions
+- **SQL injection protection**: Prepared statements for all queries
+- **XSS prevention**: Output escaping for all data
+- **CSRF protection**: Nonce validation for state-changing operations
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+#### 1. Plugin Activation Errors
+```bash
+Error: Class not found or dependencies missing
+```
+**Solution:**
+- Use the standalone version (`wp-bulk-manager-with-litespeed.php`)
+- Ensure PHP 7.4+ is installed
+- Check file permissions (644 for PHP files)
+
+#### 2. API Authentication Failures
+```bash
+HTTP 401: Invalid API key
+```
+**Solution:**
+- Verify API key in WordPress Admin → WP Bulk Manager
+- Check header format: `X-API-Key: your_key_here`
+- Ensure key hasn't been regenerated
+
+#### 3. LiteSpeed Cache Not Detected
+```bash
+"litespeed_available": false
+```
+**Solution:**
+- Install and activate LiteSpeed Cache plugin
+- Ensure OpenLiteSpeed/LiteSpeed web server is running
+- Check plugin compatibility
+
+#### 4. Performance Issues
+```bash
+Slow API responses or timeouts
+```
+**Solution:**
+- Enable object caching (Redis/Memcached)
+- Increase PHP memory limit (recommend 256M+)
+- Optimize database with WP-CLI: `wp db optimize`
+
+### Debug Mode
+Enable debugging in wp-config.php:
+```php
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WPBM_DEBUG', true);
+```
+
+View logs:
+```bash
+tail -f /wp-content/debug.log
+```
+
+### Health Check
+```bash
+# Test all systems
+curl -H "X-API-Key: $API_KEY" "$BASE_URL/auth" && \
+curl -H "X-API-Key: $API_KEY" "$BASE_URL/system" && \
+curl -H "X-API-Key: $API_KEY" "$BASE_URL/litespeed/status"
+```
+
+## 🛠️ Development
+
+### Local Development Setup
+```bash
+# Clone repository
+git clone https://github.com/derek-opdee/wp-bulk-manager-enhanced.git
+cd wp-bulk-manager-enhanced
+
+# Set up WordPress development environment
+docker-compose up -d
+
+# Install development dependencies
+npm install
+composer install
+```
+
+### Testing
+```bash
+# Run PHP unit tests
+./vendor/bin/phpunit
+
+# Run integration tests
+npm run test:integration
+
+# Run API tests
+npm run test:api
+```
+
+### Code Quality
+```bash
+# PHP linting
+./vendor/bin/phpcs --standard=WordPress
+
+# JavaScript linting
+npm run lint:js
+
+# Security scanning
+npm run security:scan
+```
+
+### Contributing
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/new-feature`
+3. Make changes and test thoroughly
+4. Run code quality checks
+5. Submit a pull request
+
+### API Versioning
+The API follows semantic versioning:
+- `/wpbm/v1/` - Current stable API
+- `/wpbm/v2/` - Future API version (in development)
+
+## 📚 Additional Resources
+
+### Documentation
+- [WordPress REST API](https://developer.wordpress.org/rest-api/)
+- [LiteSpeed Cache Documentation](https://docs.litespeedtech.com/lscache/)
+- [Perfmatters Documentation](https://perfmatters.io/docs/)
+- [OpenAPI Specification](./openapi-spec.yaml)
+
+### Related Projects
+- [SEO Generator](https://seogenerator.io/) - Automated SEO content
+- [Cloudflare Management Tool](../Cloudflare-management/) - DNS management
+- [Vultr WordPress Manager](./vultr-wordpress-manager.sh) - Server management
+
+### Support
+- **Issues**: [GitHub Issues](https://github.com/derek-opdee/wp-bulk-manager-enhanced/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/derek-opdee/wp-bulk-manager-enhanced/discussions)
+- **Email**: support@opdee.com
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## 📊 Changelog
+
+### v2.2.0 (Latest)
+- ✅ Added Perfmatters coordination
+- ✅ Intelligent cache strategy implementation
+- ✅ Enhanced performance monitoring
+- ✅ Improved error handling
+
+### v2.1.0
+- ✅ LiteSpeed Cache integration
+- ✅ Cache management endpoints
+- ✅ Performance optimization tools
+
+### v2.0.0
+- ✅ Complete WordPress REST API integration
+- ✅ SEO and meta tag management
+- ✅ Standalone plugin architecture
+
+---
+
+**Created by Derek Zar - Opdee Digital**  
+**🔗 Generated with [Claude Code](https://claude.ai/code)**
+
+**Enterprise WordPress Management Made Simple** 🚀
