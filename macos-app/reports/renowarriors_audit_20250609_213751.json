@@ -1,0 +1,321 @@
+{
+  "site": "https://renowarriors.com.au",
+  "audit_date": "2025-06-09T21:37:51.550373",
+  "summary": {
+    "total_pages": 16,
+    "total_posts": 5,
+    "total_issues": 56
+  },
+  "issues": {
+    "missing_title": [
+      {
+        "title": "Bathroom Renovation Service",
+        "url": "https://www.renowarriors.com.au/bathroom-renovation/"
+      },
+      {
+        "title": "Exterior House Painting Service",
+        "url": "https://www.renowarriors.com.au/our-services/exterior-house-painting/"
+      },
+      {
+        "title": "Interior House Painting Service",
+        "url": "https://www.renowarriors.com.au/our-services/interior-house-painting/"
+      },
+      {
+        "title": "Previous Bathroom Renovation Service",
+        "url": "https://www.renowarriors.com.au/bathroom-renovations-melbourne/"
+      },
+      {
+        "title": "Interior Renovation Service",
+        "url": "https://www.renowarriors.com.au/our-services/interior-renovation-service/"
+      },
+      {
+        "title": "Full Home Renovation Service",
+        "url": "https://www.renowarriors.com.au/our-services/full-home-renovation-service/"
+      },
+      {
+        "title": "About Reno Warriors",
+        "url": "https://www.renowarriors.com.au/who-we-are/"
+      },
+      {
+        "title": "Contact",
+        "url": "https://www.renowarriors.com.au/contact-us/"
+      },
+      {
+        "title": "Kitchen Renovation Service",
+        "url": "https://www.renowarriors.com.au/our-services/kitchen-renovations-melbourne/"
+      },
+      {
+        "title": "Renovation Project Gallery",
+        "url": "https://www.renowarriors.com.au/gallery/"
+      },
+      {
+        "title": "Home",
+        "url": "https://www.renowarriors.com.au/"
+      },
+      {
+        "title": "Thank you",
+        "url": "https://www.renowarriors.com.au/thank-you/"
+      },
+      {
+        "title": "Book a consultation",
+        "url": "https://www.renowarriors.com.au/book-a-consultation/"
+      },
+      {
+        "title": "Privacy Policy",
+        "url": "https://www.renowarriors.com.au/privacy-policy/"
+      },
+      {
+        "title": "Testimonials",
+        "url": "https://www.renowarriors.com.au/testimonials/"
+      },
+      {
+        "title": "Blog",
+        "url": "https://www.renowarriors.com.au/blog/"
+      }
+    ],
+    "title_issues": [],
+    "missing_description": [
+      {
+        "title": "Bathroom Renovation Service",
+        "url": "https://www.renowarriors.com.au/bathroom-renovation/"
+      },
+      {
+        "title": "Exterior House Painting Service",
+        "url": "https://www.renowarriors.com.au/our-services/exterior-house-painting/"
+      },
+      {
+        "title": "Interior House Painting Service",
+        "url": "https://www.renowarriors.com.au/our-services/interior-house-painting/"
+      },
+      {
+        "title": "Previous Bathroom Renovation Service",
+        "url": "https://www.renowarriors.com.au/bathroom-renovations-melbourne/"
+      },
+      {
+        "title": "Interior Renovation Service",
+        "url": "https://www.renowarriors.com.au/our-services/interior-renovation-service/"
+      },
+      {
+        "title": "Full Home Renovation Service",
+        "url": "https://www.renowarriors.com.au/our-services/full-home-renovation-service/"
+      },
+      {
+        "title": "About Reno Warriors",
+        "url": "https://www.renowarriors.com.au/who-we-are/"
+      },
+      {
+        "title": "Contact",
+        "url": "https://www.renowarriors.com.au/contact-us/"
+      },
+      {
+        "title": "Kitchen Renovation Service",
+        "url": "https://www.renowarriors.com.au/our-services/kitchen-renovations-melbourne/"
+      },
+      {
+        "title": "Renovation Project Gallery",
+        "url": "https://www.renowarriors.com.au/gallery/"
+      },
+      {
+        "title": "Home",
+        "url": "https://www.renowarriors.com.au/"
+      },
+      {
+        "title": "Thank you",
+        "url": "https://www.renowarriors.com.au/thank-you/"
+      },
+      {
+        "title": "Book a consultation",
+        "url": "https://www.renowarriors.com.au/book-a-consultation/"
+      },
+      {
+        "title": "Privacy Policy",
+        "url": "https://www.renowarriors.com.au/privacy-policy/"
+      },
+      {
+        "title": "Testimonials",
+        "url": "https://www.renowarriors.com.au/testimonials/"
+      },
+      {
+        "title": "Blog",
+        "url": "https://www.renowarriors.com.au/blog/"
+      }
+    ],
+    "description_issues": [],
+    "h1_issues": [
+      {
+        "title": "About Reno Warriors",
+        "url": "https://www.renowarriors.com.au/who-we-are/",
+        "problems": [
+          "H1 too short (8 chars)"
+        ]
+      },
+      {
+        "title": "Book a consultation",
+        "url": "https://www.renowarriors.com.au/book-a-consultation/",
+        "problems": [
+          "No H1 tag found"
+        ]
+      },
+      {
+        "title": "Privacy Policy",
+        "url": "https://www.renowarriors.com.au/privacy-policy/",
+        "problems": [
+          "No H1 tag found"
+        ]
+      },
+      {
+        "title": "Testimonials",
+        "url": "https://www.renowarriors.com.au/testimonials/",
+        "problems": [
+          "No H1 tag found"
+        ]
+      },
+      {
+        "title": "Blog",
+        "url": "https://www.renowarriors.com.au/blog/",
+        "problems": [
+          "No H1 tag found"
+        ]
+      }
+    ],
+    "spelling_issues": [
+      {
+        "title": "Bathroom Renovation Service",
+        "url": "https://www.renowarriors.com.au/bathroom-renovation/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Exterior House Painting Service",
+        "url": "https://www.renowarriors.com.au/our-services/exterior-house-painting/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Interior House Painting Service",
+        "url": "https://www.renowarriors.com.au/our-services/interior-house-painting/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Previous Bathroom Renovation Service",
+        "url": "https://www.renowarriors.com.au/bathroom-renovations-melbourne/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Interior Renovation Service",
+        "url": "https://www.renowarriors.com.au/our-services/interior-renovation-service/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Full Home Renovation Service",
+        "url": "https://www.renowarriors.com.au/our-services/full-home-renovation-service/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "About Reno Warriors",
+        "url": "https://www.renowarriors.com.au/who-we-are/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Contact",
+        "url": "https://www.renowarriors.com.au/contact-us/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Kitchen Renovation Service",
+        "url": "https://www.renowarriors.com.au/our-services/kitchen-renovations-melbourne/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Renovation Project Gallery",
+        "url": "https://www.renowarriors.com.au/gallery/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Home",
+        "url": "https://www.renowarriors.com.au/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Thank you",
+        "url": "https://www.renowarriors.com.au/thank-you/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Book a consultation",
+        "url": "https://www.renowarriors.com.au/book-a-consultation/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      },
+      {
+        "title": "Privacy Policy",
+        "url": "https://www.renowarriors.com.au/privacy-policy/",
+        "problems": [
+          "Found US spelling 'recognize' - should be 'recognise'"
+        ]
+      },
+      {
+        "title": "Testimonials",
+        "url": "https://www.renowarriors.com.au/testimonials/",
+        "problems": [
+          "Found US spelling 'color' - should be 'colour'",
+          "Found US spelling 'center' - should be 'centre'"
+        ]
+      }
+    ],
+    "local_seo_issues": [
+      {
+        "title": "Thank you",
+        "url": "https://www.renowarriors.com.au/thank-you/"
+      },
+      {
+        "title": "Privacy Policy",
+        "url": "https://www.renowarriors.com.au/privacy-policy/"
+      },
+      {
+        "title": "Testimonials",
+        "url": "https://www.renowarriors.com.au/testimonials/"
+      },
+      {
+        "title": "Blog",
+        "url": "https://www.renowarriors.com.au/blog/"
+      }
+    ]
+  }
+}

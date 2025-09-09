@@ -1,0 +1,174 @@
+/**
+ * WP Bulk Manager Admin Styles
+ */
+
+/* General Styles */
+.wp-bulk-manager-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Site Management Styles */
+.site-connection-form {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+/* Loading Spinner */
+.wp-bulk-manager-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #0073aa;
+    border-radius: 50%;
+    animation: wp-bulk-manager-spin 1s linear infinite;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+@keyframes wp-bulk-manager-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Notification Styles */
+.wp-bulk-manager-notice {
+    margin: 15px 0;
+    padding: 12px;
+    border-left: 4px solid;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+.wp-bulk-manager-notice.success {
+    border-left-color: #46b450;
+    background-color: #ecf7ed;
+}
+
+.wp-bulk-manager-notice.error {
+    border-left-color: #dc3232;
+    background-color: #fbeaea;
+}
+
+/* Template Editor */
+.template-editor {
+    margin-top: 20px;
+}
+
+.template-variables {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.variable-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 2px;
+    background: #0073aa;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.variable-tag:hover {
+    background: #005177;
+}
+
+/* Queue Status */
+.queue-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.queue-progress {
+    flex: 1;
+    height: 20px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.queue-progress-bar {
+    height: 100%;
+    background: #0073aa;
+    transition: width 0.3s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 782px) {
+    .site-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .quick-actions {
+        flex-direction: column;
+    }
+    
+    .button-hero {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Action Buttons */
+.wp-bulk-manager-actions {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* Code Editor */
+.code-editor {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Variable Preview */
+.variable-preview {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.variable-preview h4 {
+    margin-top: 0;
+}
+
+.preview-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 3px;
+}
+
+/* Tabs */
+.nav-tab-wrapper {
+    margin-bottom: 20px;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-top: none;
+}
+
+.tab-content.active {
+    display: block;
+}

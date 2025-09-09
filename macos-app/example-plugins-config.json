@@ -1,0 +1,30 @@
+{
+  "description": "Example plugin installation config for WP Bulk Manager",
+  "plugins": [
+    {
+      "url": "https://downloads.wordpress.org/plugin/wordpress-seo.latest.zip",
+      "activate": true,
+      "description": "Yoast SEO"
+    },
+    {
+      "url": "https://downloads.wordpress.org/plugin/wordfence.latest.zip",
+      "activate": true,
+      "description": "Wordfence Security"
+    },
+    {
+      "path": "/Users/yourname/Downloads/premium-plugin.zip",
+      "activate": false,
+      "description": "Local premium plugin file"
+    },
+    {
+      "url": "https://downloads.wordpress.org/plugin/updraftplus.latest.zip",
+      "activate": true,
+      "description": "UpdraftPlus Backup"
+    },
+    {
+      "url": "https://downloads.wordpress.org/plugin/wp-optimize.latest.zip",
+      "activate": false,
+      "description": "WP-Optimize"
+    }
+  ]
+}

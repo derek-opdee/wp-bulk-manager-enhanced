@@ -1,0 +1,976 @@
+openapi: 3.1.0
+info:
+  title: WP Bulk Manager API
+  description: |
+    Comprehensive WordPress management API for bulk content operations, SEO management, 
+    schema.org implementation, plugin management, and site optimization.
+  version: 4.0.0
+  contact:
+    name: Opdee Digital
+    url: https://opdee.com
+    email: info@opdee.com
+  license:
+    name: GPL v2 or later
+    url: https://www.gnu.org/licenses/gpl-2.0.html
+
+servers:
+  - url: https://opdee.com/wp-json/wpbm/v1
+    description: Default WordPress site with WP Bulk Manager
+  - url: https://{customDomain}/wp-json/wpbm/v1
+    description: Custom WordPress site
+    variables:
+      customDomain:
+        default: example.com
+
+security:
+  - ApiKeyAuth: []
+  - BearerAuth: []
+
+tags:
+  - name: Authentication
+    description: API authentication and security
+  - name: Content
+    description: Page and post management
+  - name: SEO
+    description: SEO optimization and meta management
+  - name: Schema
+    description: Schema.org structured data management
+  - name: Plugins
+    description: Plugin and theme management
+  - name: LiteSpeed
+    description: LiteSpeed Cache management
+  - name: Performance
+    description: Performance optimization
+  - name: Bulk Operations
+    description: Bulk content and SEO operations
+
+paths:
+  /auth:
+    post:
+      tags: [Authentication]
+      summary: Authenticate and verify API access
+      operationId: authenticate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [api_key]
+              properties:
+                api_key:
+                  type: string
+                  description: API key for authentication
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /content:
+    get:
+      tags: [Content]
+      summary: List all content (pages and posts)
+      operationId: listContent
+      parameters:
+        - $ref: '#/components/parameters/PostType'
+        - $ref: '#/components/parameters/Status'
+        - $ref: '#/components/parameters/PerPage'
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/Search'
+      responses:
+        '200':
+          description: Content list retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Content'
+                  total:
+                    type: integer
+                  pages:
+                    type: integer
+
+    post:
+      tags: [Content]
+      summary: Create new content
+      operationId: createContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentCreate'
+      responses:
+        '201':
+          description: Content created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content'
+
+  /content/{id}:
+    get:
+      tags: [Content]
+      summary: Get specific content
+      operationId: getContent
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+      responses:
+        '200':
+          description: Content retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentDetail'
+
+    put:
+      tags: [Content]
+      summary: Update content
+      operationId: updateContent
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentUpdate'
+      responses:
+        '200':
+          description: Content updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Content'
+
+    delete:
+      tags: [Content]
+      summary: Delete content
+      operationId: deleteContent
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+        - name: force
+          in: query
+          schema:
+            type: boolean
+            default: false
+          description: Force delete (skip trash)
+      responses:
+        '204':
+          description: Content deleted
+
+  /seo/{id}:
+    get:
+      tags: [SEO]
+      summary: Get SEO data for content
+      operationId: getSEO
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+      responses:
+        '200':
+          description: SEO data retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SEOData'
+
+    put:
+      tags: [SEO]
+      summary: Update SEO data
+      operationId: updateSEO
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SEOUpdate'
+      responses:
+        '200':
+          description: SEO data updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SEOData'
+
+  /seo/bulk:
+    post:
+      tags: [SEO, Bulk Operations]
+      summary: Bulk update SEO data
+      operationId: bulkUpdateSEO
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                updates:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      seo:
+                        $ref: '#/components/schemas/SEOUpdate'
+      responses:
+        '200':
+          description: Bulk SEO update completed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  updated:
+                    type: integer
+                  failed:
+                    type: integer
+                  errors:
+                    type: array
+                    items:
+                      type: string
+
+  /schema/{id}:
+    get:
+      tags: [Schema]
+      summary: Get schema.org data
+      operationId: getSchema
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+      responses:
+        '200':
+          description: Schema data retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaData'
+
+    put:
+      tags: [Schema]
+      summary: Update schema.org data
+      operationId: updateSchema
+      parameters:
+        - $ref: '#/components/parameters/ContentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchemaUpdate'
+      responses:
+        '200':
+          description: Schema updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SchemaData'
+
+  /plugins:
+    get:
+      tags: [Plugins]
+      summary: List all plugins
+      operationId: listPlugins
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [all, active, inactive, update_available]
+      responses:
+        '200':
+          description: Plugin list retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Plugin'
+
+    post:
+      tags: [Plugins]
+      summary: Install plugin
+      operationId: installPlugin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [slug]
+              properties:
+                slug:
+                  type: string
+                  description: Plugin slug from WordPress.org
+                activate:
+                  type: boolean
+                  default: false
+      responses:
+        '201':
+          description: Plugin installed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plugin'
+
+  /plugins/{slug}:
+    put:
+      tags: [Plugins]
+      summary: Update plugin
+      operationId: updatePlugin
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Plugin updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plugin'
+
+    delete:
+      tags: [Plugins]
+      summary: Delete plugin
+      operationId: deletePlugin
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Plugin deleted
+
+  /plugins/{slug}/activate:
+    post:
+      tags: [Plugins]
+      summary: Activate plugin
+      operationId: activatePlugin
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Plugin activated
+
+  /plugins/{slug}/deactivate:
+    post:
+      tags: [Plugins]
+      summary: Deactivate plugin
+      operationId: deactivatePlugin
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Plugin deactivated
+
+  /litespeed/settings:
+    get:
+      tags: [LiteSpeed]
+      summary: Get LiteSpeed Cache settings
+      operationId: getLiteSpeedSettings
+      responses:
+        '200':
+          description: LiteSpeed settings retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LiteSpeedSettings'
+
+    put:
+      tags: [LiteSpeed]
+      summary: Update LiteSpeed Cache settings
+      operationId: updateLiteSpeedSettings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LiteSpeedSettings'
+      responses:
+        '200':
+          description: Settings updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LiteSpeedSettings'
+
+  /litespeed/purge:
+    post:
+      tags: [LiteSpeed]
+      summary: Purge LiteSpeed cache
+      operationId: purgeLiteSpeedCache
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum: [all, front, pages, posts, url]
+                  default: all
+                url:
+                  type: string
+                  description: Specific URL to purge (when type is 'url')
+      responses:
+        '200':
+          description: Cache purged
+
+  /litespeed/crawler:
+    post:
+      tags: [LiteSpeed]
+      summary: Run LiteSpeed crawler
+      operationId: runLiteSpeedCrawler
+      responses:
+        '202':
+          description: Crawler started
+
+  /performance/analyze:
+    post:
+      tags: [Performance]
+      summary: Analyze site performance
+      operationId: analyzePerformance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: URL to analyze (default is homepage)
+      responses:
+        '200':
+          description: Performance analysis complete
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PerformanceReport'
+
+  /bulk/content:
+    post:
+      tags: [Bulk Operations]
+      summary: Bulk create content
+      operationId: bulkCreateContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                template:
+                  $ref: '#/components/schemas/ContentTemplate'
+                variables:
+                  type: array
+                  items:
+                    type: object
+                    additionalProperties: true
+      responses:
+        '201':
+          description: Content created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  created:
+                    type: integer
+                  failed:
+                    type: integer
+                  ids:
+                    type: array
+                    items:
+                      type: integer
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+    BearerAuth:
+      type: http
+      scheme: bearer
+
+  parameters:
+    ContentId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Content ID
+
+    PostType:
+      name: post_type
+      in: query
+      schema:
+        type: string
+        enum: [post, page, any]
+        default: any
+      description: Type of content
+
+    Status:
+      name: status
+      in: query
+      schema:
+        type: string
+        enum: [publish, draft, private, trash, any]
+        default: any
+      description: Content status
+
+    PerPage:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+      description: Items per page
+
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+      description: Page number
+
+    Search:
+      name: search
+      in: query
+      schema:
+        type: string
+      description: Search query
+
+  schemas:
+    AuthResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        site:
+          type: object
+          properties:
+            name:
+              type: string
+            url:
+              type: string
+            version:
+              type: string
+        user:
+          type: object
+          properties:
+            id:
+              type: integer
+            username:
+              type: string
+            email:
+              type: string
+            roles:
+              type: array
+              items:
+                type: string
+
+    Content:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        slug:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+        date:
+          type: string
+          format: date-time
+        modified:
+          type: string
+          format: date-time
+        author:
+          type: integer
+        excerpt:
+          type: string
+        featured_media:
+          type: integer
+        permalink:
+          type: string
+
+    ContentDetail:
+      allOf:
+        - $ref: '#/components/schemas/Content'
+        - type: object
+          properties:
+            content:
+              type: string
+              description: HTML content
+            blocks:
+              type: array
+              description: Gutenberg blocks
+              items:
+                type: object
+            meta:
+              type: object
+              additionalProperties: true
+            categories:
+              type: array
+              items:
+                type: integer
+            tags:
+              type: array
+              items:
+                type: integer
+
+    ContentCreate:
+      type: object
+      required: [title, content]
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        status:
+          type: string
+          enum: [publish, draft, private]
+          default: draft
+        type:
+          type: string
+          enum: [post, page]
+          default: post
+        slug:
+          type: string
+        excerpt:
+          type: string
+        author:
+          type: integer
+        categories:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: integer
+        meta:
+          type: object
+          additionalProperties: true
+
+    ContentUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        status:
+          type: string
+        slug:
+          type: string
+        excerpt:
+          type: string
+        categories:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: integer
+        meta:
+          type: object
+          additionalProperties: true
+
+    ContentTemplate:
+      type: object
+      required: [title, content]
+      properties:
+        title:
+          type: string
+          description: Title template with variables like {location}
+        content:
+          type: string
+          description: Content template with variables
+        type:
+          type: string
+          enum: [post, page]
+          default: page
+        status:
+          type: string
+          enum: [publish, draft]
+          default: draft
+        seo:
+          $ref: '#/components/schemas/SEOUpdate'
+        schema:
+          $ref: '#/components/schemas/SchemaUpdate'
+
+    SEOData:
+      type: object
+      properties:
+        title:
+          type: string
+          description: SEO title
+        description:
+          type: string
+          description: Meta description
+        canonical:
+          type: string
+          format: uri
+        robots:
+          type: object
+          properties:
+            index:
+              type: boolean
+            follow:
+              type: boolean
+            archive:
+              type: boolean
+        og:
+          type: object
+          description: Open Graph data
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            image:
+              type: string
+            type:
+              type: string
+        twitter:
+          type: object
+          description: Twitter Card data
+          properties:
+            card:
+              type: string
+            title:
+              type: string
+            description:
+              type: string
+            image:
+              type: string
+        focus_keyword:
+          type: string
+        breadcrumbs:
+          type: string
+
+    SEOUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        canonical:
+          type: string
+        robots:
+          type: object
+          properties:
+            index:
+              type: boolean
+            follow:
+              type: boolean
+        og:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            image:
+              type: string
+        twitter:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            image:
+              type: string
+        focus_keyword:
+          type: string
+
+    SchemaData:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Schema.org type (e.g., Article, Product, Service)
+        data:
+          type: object
+          description: Schema.org JSON-LD data
+          additionalProperties: true
+
+    SchemaUpdate:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [Article, Product, Service, LocalBusiness, Organization, Person, Event, FAQ, HowTo]
+        data:
+          type: object
+          additionalProperties: true
+
+    Plugin:
+      type: object
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+        active:
+          type: boolean
+        update_available:
+          type: boolean
+        new_version:
+          type: string
+        author:
+          type: string
+        description:
+          type: string
+
+    LiteSpeedSettings:
+      type: object
+      properties:
+        cache:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            browser:
+              type: boolean
+            mobile:
+              type: boolean
+            ttl_public:
+              type: integer
+            ttl_private:
+              type: integer
+        optimization:
+          type: object
+          properties:
+            css_minify:
+              type: boolean
+            css_combine:
+              type: boolean
+            js_minify:
+              type: boolean
+            js_combine:
+              type: boolean
+            html_minify:
+              type: boolean
+            lazy_load:
+              type: boolean
+            webp:
+              type: boolean
+        cdn:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            url:
+              type: string
+        crawler:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            interval:
+              type: integer
+            threads:
+              type: integer
+
+    PerformanceReport:
+      type: object
+      properties:
+        metrics:
+          type: object
+          properties:
+            ttfb:
+              type: number
+              description: Time to first byte (ms)
+            fcp:
+              type: number
+              description: First contentful paint (ms)
+            lcp:
+              type: number
+              description: Largest contentful paint (ms)
+            cls:
+              type: number
+              description: Cumulative layout shift
+            fid:
+              type: number
+              description: First input delay (ms)
+        scores:
+          type: object
+          properties:
+            performance:
+              type: integer
+              minimum: 0
+              maximum: 100
+            seo:
+              type: integer
+              minimum: 0
+              maximum: 100
+            accessibility:
+              type: integer
+              minimum: 0
+              maximum: 100
+        recommendations:
+          type: array
+          items:
+            type: object
+            properties:
+              priority:
+                type: string
+                enum: [high, medium, low]
+              category:
+                type: string
+              description:
+                type: string
+              impact:
+                type: string
+
+  responses:
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              message:
+                type: string

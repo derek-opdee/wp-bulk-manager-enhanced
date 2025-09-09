@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2025-01-09",
+  "category": "Shell Script Patterns",
+  "patterns": [
+    {
+      "id": "color-definitions",
+      "pattern": "GREEN='\\033[0;32m'\\nRED='\\033[0;31m'\\nYELLOW='\\033[1;33m'\\nBLUE='\\033[0;34m'\\nNC='\\033[0m'",
+      "description": "Standard color definitions for shell output",
+      "frequency": 12,
+      "examples": [
+        "All shell scripts use same color codes"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "script-directory",
+      "pattern": "SCRIPT_DIR=\"$(cd \"$(dirname \"${BASH_SOURCE[0]}\")\" && pwd)\"",
+      "description": "Get absolute path of script directory",
+      "frequency": 10,
+      "examples": [
+        "Used in all main scripts for relative path resolution"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "function-headers",
+      "pattern": "print_header() {\\n    echo -e \"\\n${BLUE}═══...${NC}\"\\n}",
+      "description": "Consistent header formatting function",
+      "frequency": 8,
+      "examples": [
+        "validate-and-test.sh",
+        "health-check.sh"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "dependency-check",
+      "pattern": "command -v COMMAND &> /dev/null",
+      "description": "Check if command exists pattern",
+      "frequency": 15,
+      "examples": [
+        "if command -v wp &> /dev/null",
+        "if command -v jq &> /dev/null"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "config-file-path",
+      "pattern": "$SCRIPT_DIR/config.json",
+      "description": "Configuration file location pattern",
+      "frequency": 6,
+      "examples": [
+        "wordpress-site-manager.sh",
+        "health-check.sh"
+      ],
+      "last_seen": "2025-01-09"
+    }
+  ]
+}

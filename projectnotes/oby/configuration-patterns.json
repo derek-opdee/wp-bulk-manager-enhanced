@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2025-01-09",
+  "category": "Configuration Patterns",
+  "patterns": [
+    {
+      "id": "config-json-structure",
+      "pattern": "{\"sites\": [], \"features\": {}, \"settings\": {}}",
+      "description": "Main configuration file structure",
+      "frequency": 3,
+      "examples": [
+        "config.json with sites array and feature flags"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "site-configuration",
+      "pattern": "{\"name\": \"\", \"url\": \"\", \"api_key\": \"\", \"added\": \"\"}",
+      "description": "Individual site configuration structure",
+      "frequency": 5,
+      "examples": [
+        "Site objects in config.json"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "feature-flags",
+      "pattern": "\"seo\": true, \"schema\": true, \"litespeed\": true, \"vultr\": false",
+      "description": "Feature toggle configuration pattern",
+      "frequency": 2,
+      "examples": [
+        "Optional features in config.json"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "environment-variables",
+      "pattern": "export VARIABLE_NAME=\"value\"",
+      "description": "Environment variable configuration pattern",
+      "frequency": 4,
+      "examples": [
+        "export VULTR_API_KEY=\"...\"",
+        "export CLOUDFLARE_API_TOKEN=\"...\""
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "directory-structure",
+      "pattern": "logs/, backups/, macos-app/, monitoring/, performance-reports/",
+      "description": "Standard directory structure for project",
+      "frequency": 1,
+      "examples": [
+        "Project root directory organization"
+      ],
+      "last_seen": "2025-01-09"
+    }
+  ]
+}

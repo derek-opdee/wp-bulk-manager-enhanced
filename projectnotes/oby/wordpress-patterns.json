@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2025-01-09",
+  "category": "WordPress Development Patterns",
+  "patterns": [
+    {
+      "id": "plugin-class-naming",
+      "pattern": "class WP_Bulk_Manager_Enhanced",
+      "description": "Main plugin class naming convention",
+      "frequency": 1,
+      "examples": [
+        "wp-bulk-manager-enhanced.php"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "wordpress-hooks",
+      "pattern": "add_action('hook_name', [$this, 'method_name'])",
+      "description": "WordPress action hook registration pattern",
+      "frequency": 10,
+      "examples": [
+        "add_action('rest_api_init', [$this, 'register_routes'])",
+        "add_action('admin_menu', [$this, 'add_admin_menu'])",
+        "add_action('wp_head', [$this, 'output_seo_meta_tags'])",
+        "add_action('init', [$this, 'init'])"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "rest-route-registration",
+      "pattern": "register_rest_route('wpbm/v1', '/endpoint', [...])",
+      "description": "REST API route registration pattern",
+      "frequency": 12,
+      "examples": [
+        "register_rest_route with methods, callback, permission_callback"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "capability-check",
+      "pattern": "current_user_can('manage_options')",
+      "description": "WordPress capability checking pattern",
+      "frequency": 8,
+      "examples": [
+        "Permission callbacks for REST endpoints"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "nonce-verification",
+      "pattern": "wp_verify_nonce() || check_ajax_referer()",
+      "description": "Security nonce verification pattern",
+      "frequency": 5,
+      "examples": [
+        "AJAX request validation"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "wp-cli-commands",
+      "pattern": "wp COMMAND --path=\"$site_path\"",
+      "description": "WP-CLI command execution pattern",
+      "frequency": 20,
+      "examples": [
+        "wp plugin list --path=\"$site_path\"",
+        "wp option get wpbm_api_key"
+      ],
+      "last_seen": "2025-01-09"
+    }
+  ]
+}

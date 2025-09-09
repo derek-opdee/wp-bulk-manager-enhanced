@@ -1,0 +1,97 @@
+# Dependencies
+node_modules/
+vendor/
+*.lock
+package-lock.json
+composer.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+macos-app/venv/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Backups
+backups/
+*.backup
+*.bak
+*.sql
+
+# Cache
+cache/
+.cache/
+*.cache
+temp/
+tmp/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+macos-app/site_connections.db
+
+# Reports
+performance-reports/
+health-check-*.log
+*-report.json
+*-report.md
+
+# Sensitive data
+api_keys.txt
+credentials.json
+secrets.json
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Test coverage
+coverage/
+.coverage
+*.cover
+.pytest_cache/
+
+# WordPress specific
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+
+# Project specific  
+monitoring/prometheus.yml
+visual-snapshots/
+
+# Keep config template
+!config.json.example

@@ -1,0 +1,95 @@
+{
+  "timestamp": "2025-06-09T19:39:06.005562",
+  "malware_found": [],
+  "suspicious_files": [
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/advanced-cache.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/object-cache.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/dist/starter-dash.asset.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/dist/starter-tours.asset.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/dist/starter-templates.asset.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/wxr-importer/WXRImporter.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/wxr-importer/WPImporterLogger.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/wxr-importer/WXRImportInfo.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/wxr-importer/WPImporterLoggerCLI.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/wxr-importer/Importer.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/class-kadence-starter-templates.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/inc/resources/Cache/Block_Library_Cache.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/inc/resources/Cache/Ai_Cache.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/inc/resources/Cache/Cache_Provider.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/inc/resources/Cache/Config.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/inc/resources/Hasher.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/inc/resources/Traits/Rest/Image_Trait.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/inc/resources/Traits/Image_Size_Trait.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/inc/resources/Container.php",
+      "reason": "Recently modified PHP file"
+    },
+    {
+      "file": "applications/cfhbaxywhg/public_html/wp-content/plugins/kadence-starter-templates/inc/resources/App.php",
+      "reason": "Recently modified PHP file"
+    }
+  ],
+  "database_issues": [],
+  "recommendations": [
+    "\u2705 No active malware patterns detected",
+    "\ud83d\udd12 Change all WordPress admin passwords",
+    "\ud83d\udd04 Update WordPress core and all plugins",
+    "\ud83d\udee1\ufe0f Install security plugin (Wordfence/Sucuri)",
+    "\ud83d\udcca Enable security monitoring",
+    "\ud83d\udd0d Schedule regular malware scans"
+  ]
+}

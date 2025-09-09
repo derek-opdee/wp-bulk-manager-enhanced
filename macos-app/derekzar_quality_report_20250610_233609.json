@@ -1,0 +1,396 @@
+{
+  "site": "https://derekzar.com",
+  "analysis_date": "2025-06-10T23:36:09.053949",
+  "summary": {
+    "total_pages_analyzed": 13,
+    "pages_with_issues": 13,
+    "placeholder_text_pages": 1,
+    "h1_issue_pages": 6,
+    "seo_issue_pages": 13,
+    "posts_analyzed": 1,
+    "posts_with_lorem": 0
+  },
+  "findings": [
+    {
+      "id": 2265,
+      "title": "Investment Opportunities",
+      "link": "https://derekzar.com/investment-opportunities/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 1,
+        "h1_tags": [
+          "Strategic Investment Opportunities"
+        ],
+        "issues": []
+      },
+      "seo_analysis": {
+        "title": "Investment Opportunities",
+        "title_length": 24,
+        "description": "Strategic Investment Opportunities Proven AI innovations with massive revenue potential currently in active negotiations. Active Negotiations with major enterprises Current Investment Pipeline Three major projects in various stages of acquisition&#8230;",
+        "description_length": 253,
+        "issues": [
+          "SEO title too short (24 chars): \"Investment Opportunities\"",
+          "Meta description too long (253 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 2196,
+      "title": "Speaking &amp; Workshops",
+      "link": "https://derekzar.com/speaking-workshops/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 2,
+        "h1_tags": [
+          "Speaking &amp; Workshops",
+          "Global AI Thought Leadership"
+        ],
+        "issues": [
+          "Multiple H1 tags found (2)"
+        ]
+      },
+      "seo_analysis": {
+        "title": "Speaking &amp; Workshops",
+        "title_length": 24,
+        "description": "Speaking &amp; Workshops Thought leadership presentations and intensive workshops for conferences and corporate events Global AI Thought Leadership As a globally recognised AI trendsetter and FUELD Conference Dubai 2025 award&#8230;",
+        "description_length": 232,
+        "issues": [
+          "SEO title too short (24 chars): \"Speaking &amp; Workshops\"",
+          "Meta description too long (232 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 2194,
+      "title": "AI Training &amp; Enablement",
+      "link": "https://derekzar.com/ai-training-enablement/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 2,
+        "h1_tags": [
+          "AI Training &amp; Enablement",
+          "Comprehensive AI Education"
+        ],
+        "issues": [
+          "Multiple H1 tags found (2)"
+        ]
+      },
+      "seo_analysis": {
+        "title": "AI Training &amp; Enablement",
+        "title_length": 28,
+        "description": "AI Training &amp; Enablement Build internal AI capabilities and champion networks for sustainable transformation Comprehensive AI Education Successful AI transformation requires more than just technology—it requires people who understand how&#8230;",
+        "description_length": 248,
+        "issues": [
+          "SEO title too short (28 chars): \"AI Training &amp; Enablement\"",
+          "Meta description too long (248 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 2192,
+      "title": "AI Cloud Architecture",
+      "link": "https://derekzar.com/ai-cloud-architecture/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 2,
+        "h1_tags": [
+          "AI Cloud Architecture",
+          "Enterprise-Grade AI Infrastructure"
+        ],
+        "issues": [
+          "Multiple H1 tags found (2)"
+        ]
+      },
+      "seo_analysis": {
+        "title": "AI Cloud Architecture",
+        "title_length": 21,
+        "description": "AI Cloud Architecture Scalable, secure, and cost-efficient cloud optimisation for AI workloads Enterprise-Grade AI Infrastructure With 20+ years of web hosting and cloud services experience, I design AI infrastructure that&#8230;",
+        "description_length": 229,
+        "issues": [
+          "SEO title too short (21 chars): \"AI Cloud Architecture\"",
+          "Meta description too long (229 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 2188,
+      "title": "Agentic AI Development",
+      "link": "https://derekzar.com/agentic-ai-development/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 2,
+        "h1_tags": [
+          "Agentic AI Development",
+          "Next-Generation AI Architecture"
+        ],
+        "issues": [
+          "Multiple H1 tags found (2)"
+        ]
+      },
+      "seo_analysis": {
+        "title": "Agentic AI Development",
+        "title_length": 22,
+        "description": "Agentic AI Development Build the future with AI systems designed for autonomous operation and creative problem-solving Next-Generation AI Architecture As a top 1% contributor in agentic development communities, I specialise&#8230;",
+        "description_length": 230,
+        "issues": [
+          "SEO title too short (22 chars): \"Agentic AI Development\"",
+          "Meta description too long (230 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 2183,
+      "title": "Fractional AI Executive",
+      "link": "https://derekzar.com/fractional-ai-executive/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 2,
+        "h1_tags": [
+          "Fractional AI Executive",
+          "Executive AI Leadership"
+        ],
+        "issues": [
+          "Multiple H1 tags found (2)"
+        ]
+      },
+      "seo_analysis": {
+        "title": "Fractional AI Executive",
+        "title_length": 23,
+        "description": "Fractional AI Executive Contracted executive leadership for strategic AI guidance without full-time commitment Executive AI Leadership Get CTO/CMO-level AI expertise without the full-time executive cost. My fractional executive services provide&#8230;",
+        "description_length": 251,
+        "issues": [
+          "SEO title too short (23 chars): \"Fractional AI Executive\"",
+          "Meta description too long (251 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 2177,
+      "title": "AI Strategy &amp; Transformation",
+      "link": "https://derekzar.com/ai-strategy-transformation/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 2,
+        "h1_tags": [
+          "AI Strategy &amp; Transformation",
+          "Strategic Leadership for the AI Era"
+        ],
+        "issues": [
+          "Multiple H1 tags found (2)"
+        ]
+      },
+      "seo_analysis": {
+        "title": "AI Strategy &amp; Transformation",
+        "title_length": 32,
+        "description": "AI Strategy &amp; Transformation Redefine your organisation with comprehensive strategic guidance Strategic Leadership for the AI Era Organisations that lead with AI don&#8217;t just adopt. My AI Strategy &amp; Transformation&#8230;",
+        "description_length": 232,
+        "issues": [
+          "Meta description too long (232 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 2129,
+      "title": "All Services",
+      "link": "https://derekzar.com/all-services/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 1,
+        "h1_tags": [
+          "Comprehensive AI Services"
+        ],
+        "issues": []
+      },
+      "seo_analysis": {
+        "title": "All Services",
+        "title_length": 12,
+        "description": "Comprehensive AI Services Elite consulting services designed for organisations ready to lead with AI AI Strategy &amp; Transformation Comprehensive strategic guidance for organisations seeking to become AI-native businesses. Agentic AI&#8230;",
+        "description_length": 242,
+        "issues": [
+          "SEO title too short (12 chars): \"All Services\"",
+          "Meta description too long (242 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 2126,
+      "title": "Privacy Policy",
+      "link": "https://derekzar.com/privacy-policy/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 1,
+        "h1_tags": [
+          "Privacy Policy"
+        ],
+        "issues": []
+      },
+      "seo_analysis": {
+        "title": "Privacy Policy",
+        "title_length": 14,
+        "description": "Privacy Policy Who We Are Our website address is: https://derekzar.com. Derek Zar provides AI consulting services to businesses, helping organisations implement and optimise artificial intelligence solutions. We are committed to&#8230;",
+        "description_length": 235,
+        "issues": [
+          "SEO title too short (14 chars): \"Privacy Policy\"",
+          "Meta description too long (235 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 1786,
+      "title": "Projects",
+      "link": "https://derekzar.com/projects/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 1,
+        "h1_tags": [
+          "Featured AI Projects"
+        ],
+        "issues": []
+      },
+      "seo_analysis": {
+        "title": "Projects",
+        "title_length": 8,
+        "description": "Featured AI Projects Recent innovations demonstrating the practical application of agentic AI across diverse business contexts and currently under discussion for acquisition and commercial SAAS build out. AI-Integrated Freight Management&#8230;",
+        "description_length": 244,
+        "issues": [
+          "SEO title too short (8 chars): \"Projects\"",
+          "Meta description too long (244 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 1731,
+      "title": "Contact",
+      "link": "https://derekzar.com/contact/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [
+        {
+          "text": "placeholder",
+          "context": "label=\"Full Name\" autocomplete=\"name\" type=\"text\" placeholder=\"\" value=\"\" data-type=\"text\" class=\"kb-field kb-t",
+          "position": 14344
+        },
+        {
+          "text": "placeholder",
+          "context": "\"Email Address\" autocomplete=\"email\" type=\"email\" placeholder=\"\" value=\"\" data-type=\"email\" class=\"kb-field kb-",
+          "position": 14860
+        },
+        {
+          "text": "placeholder",
+          "context": "any Name\" autocomplete=\"organization\" type=\"text\" placeholder=\"\" value=\"\" data-type=\"text\" class=\"kb-field kb-t",
+          "position": 15374
+        },
+        {
+          "text": "placeholder",
+          "context": "7134d-2b\" data-label=\"Your Tile/Role\" type=\"text\" placeholder=\"\" value=\"\" data-type=\"text\" class=\"kb-field kb-t",
+          "position": 15869
+        },
+        {
+          "text": "placeholder",
+          "context": "3\"  data-label=\"Project Details &amp; Objectives\" placeholder=\"\" data-type=\"textarea\" class=\"kb-field kb-textar",
+          "position": 17340
+        }
+      ],
+      "h1_analysis": {
+        "count": 1,
+        "h1_tags": [
+          "Helping Companies Build AI into their Future"
+        ],
+        "issues": []
+      },
+      "seo_analysis": {
+        "title": "Contact",
+        "title_length": 7,
+        "description": "Helping Companies Build AI into their Future Ready to go from AI curious to AI native?",
+        "description_length": 86,
+        "issues": [
+          "SEO title too short (7 chars): \"Contact\"",
+          "Meta description too short (86 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 1529,
+      "title": "About",
+      "link": "https://derekzar.com/about/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 1,
+        "h1_tags": [
+          "The Journey from Tech Support to AI Visionary"
+        ],
+        "issues": []
+      },
+      "seo_analysis": {
+        "title": "About",
+        "title_length": 5,
+        "description": "The Journey from Tech Support to AI Visionary 28+ years of evolution in technology, innovation, and business transformation AI Vision Elite AI Innovation Strategist As an innovative Project Manager and&#8230;",
+        "description_length": 208,
+        "issues": [
+          "SEO title too short (5 chars): \"About\"",
+          "Meta description too long (208 chars)"
+        ]
+      },
+      "has_issues": true
+    },
+    {
+      "id": 1015,
+      "title": "Home",
+      "link": "https://derekzar.com/",
+      "status": "publish",
+      "type": "page",
+      "placeholder_text": [],
+      "h1_analysis": {
+        "count": 1,
+        "h1_tags": [
+          "Evolve Your Business with Elite AI Strategy"
+        ],
+        "issues": []
+      },
+      "seo_analysis": {
+        "title": "Home",
+        "title_length": 4,
+        "description": "Derek Zar Evolve Your Business with Elite AI Strategy I collaborate with corporations and businesses to evolve from AI cautious to AI native through strategic leadership, cultural transformation, and cutting-edge&#8230;",
+        "description_length": 219,
+        "issues": [
+          "SEO title too short (4 chars): \"Home\"",
+          "Meta description too long (219 chars)"
+        ]
+      },
+      "has_issues": true
+    }
+  ]
+}

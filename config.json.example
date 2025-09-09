@@ -1,0 +1,23 @@
+{
+  "sites": [
+    {
+      "name": "Example Site",
+      "url": "https://example.com",
+      "api_key": "YOUR_API_KEY_HERE",
+      "added": "2025-01-09T00:00:00Z"
+    }
+  ],
+  "features": {
+    "seo": true,
+    "schema": true,
+    "litespeed": true,
+    "vultr": false,
+    "performance": true
+  },
+  "settings": {
+    "backup_enabled": true,
+    "backup_interval": "daily",
+    "monitoring_enabled": true,
+    "auto_update": false
+  }
+}

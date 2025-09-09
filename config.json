@@ -1,0 +1,16 @@
+{
+  "sites": [],
+  "features": {
+    "seo": true,
+    "schema": true,
+    "litespeed": true,
+    "vultr": false,
+    "performance": true
+  },
+  "settings": {
+    "backup_enabled": true,
+    "backup_interval": "daily",
+    "monitoring_enabled": true,
+    "auto_update": false
+  }
+}

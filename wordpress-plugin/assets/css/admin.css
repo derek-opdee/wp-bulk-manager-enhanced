@@ -1,0 +1,99 @@
+/* WP Bulk Manager Admin Styles */
+
+.wpbm-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.wpbm-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.wpbm-card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.wpbm-card code {
+    background: #f1f1f1;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.wpbm-stats {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wpbm-stats li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.wpbm-stats li:last-child {
+    border-bottom: none;
+}
+
+/* Activity log table */
+.wpbm-logs-table {
+    margin-top: 20px;
+}
+
+.wpbm-logs-table th {
+    font-weight: 600;
+}
+
+/* Settings page */
+.wpbm-settings-section {
+    margin-bottom: 30px;
+}
+
+.wpbm-api-key-display {
+    background: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin: 10px 0;
+    font-family: monospace;
+}
+
+/* Buttons */
+.wpbm-button-group {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+/* Status indicators */
+.wpbm-status {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.wpbm-status-active {
+    background: #46b450;
+}
+
+.wpbm-status-inactive {
+    background: #dc3232;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+    .wpbm-dashboard {
+        grid-template-columns: 1fr;
+    }
+}

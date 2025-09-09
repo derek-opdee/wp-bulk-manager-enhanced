@@ -1,0 +1,50 @@
+{
+  "site": "https://www.boulderworks.net",
+  "total_pages": 22,
+  "proper_h1": 18,
+  "missing_h1": [
+    {
+      "id": 3127,
+      "title": "Project Gallery Page",
+      "has_gutenberg": true
+    },
+    {
+      "id": 1214,
+      "title": "Thank You For Contacting Us",
+      "has_gutenberg": false
+    },
+    {
+      "id": 5,
+      "title": "Blog",
+      "has_gutenberg": false
+    }
+  ],
+  "multiple_h1": [
+    {
+      "id": 830,
+      "title": "Our Services",
+      "count": 2,
+      "has_gutenberg": false
+    }
+  ],
+  "pages_with_proper_h1": [
+    "Multi Media Murals",
+    "Large Format Laser Cutting",
+    "Large Format Laser Engraving",
+    "Custom Awards",
+    "Signs & Signage",
+    "Commercial Laser Cutting",
+    "Laser Cutting",
+    "Acrylic Cutting",
+    "Rubber Cutting",
+    "Metal Cutting",
+    "Media Blasting (Garnet/Sand)",
+    "Laser Marking Etching",
+    "Gasket Cutting",
+    "Wood Burning",
+    "FAQ",
+    "About Us",
+    "Contact Us",
+    "Boulder Works, Inc | Laser Cutting & Engraving Services"
+  ]
+}

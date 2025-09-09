@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2025-01-09",
+  "category": "API Conventions",
+  "patterns": [
+    {
+      "id": "rest-api-namespace",
+      "pattern": "wpbm/v1",
+      "description": "WordPress REST API namespace for WP Bulk Manager",
+      "frequency": 15,
+      "examples": [
+        "/wp-json/wpbm/v1/content",
+        "/wp-json/wpbm/v1/seo",
+        "/wp-json/wpbm/v1/schema"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "authentication-header",
+      "pattern": "X-API-Key",
+      "description": "API authentication via custom header",
+      "frequency": 25,
+      "examples": [
+        "curl -H \"X-API-Key: YOUR_KEY\"",
+        "Authorization: Bearer YOUR_KEY"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "error-response-format",
+      "pattern": "{\"error\": \"message\", \"code\": \"ERROR_CODE\"}",
+      "description": "Standardized error response format",
+      "frequency": 8,
+      "examples": [
+        "{\"error\": \"Invalid API key\", \"code\": \"AUTH_FAILED\"}",
+        "{\"error\": \"Content not found\", \"code\": \"NOT_FOUND\"}"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "openapi-specification",
+      "pattern": "openapi: 3.1.0",
+      "description": "Using OpenAPI 3.1.0 for API documentation",
+      "frequency": 1,
+      "examples": [
+        "openapi-spec.yaml"
+      ],
+      "last_seen": "2025-01-09"
+    },
+    {
+      "id": "crud-endpoints",
+      "pattern": "GET|POST|PUT|DELETE /resource/{id}",
+      "description": "RESTful CRUD endpoint pattern",
+      "frequency": 20,
+      "examples": [
+        "GET /wpbm/v1/content",
+        "POST /wpbm/v1/content",
+        "PUT /wpbm/v1/content/{id}",
+        "DELETE /wpbm/v1/content/{id}"
+      ],
+      "last_seen": "2025-01-09"
+    }
+  ]
+}

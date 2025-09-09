@@ -1,0 +1,49 @@
+{
+  "site": "derekzar.com",
+  "timestamp": "2025-06-10T22:58:08.519003",
+  "tests": {
+    "site_connection": {
+      "status": "passed",
+      "site_id": 2,
+      "url": "https://derekzar.com"
+    },
+    "wpbm_plugin": {
+      "status": "failed",
+      "error": "404 Client Error: Not Found for url: https://derekzar.com/wp-json/wpbm/v1/wp-json/wp-bulk-manager/v1/status"
+    },
+    "endpoints": {
+      "total": 7,
+      "working": 0
+    },
+    "pages": {
+      "error": "'str' object has no attribute 'get'"
+    },
+    "posts": {
+      "error": "'str' object has no attribute 'get'"
+    },
+    "plugins": {
+      "error": "404 Client Error: Not Found for url: https://derekzar.com/wp-json/wpbm/v1/wp-json/wp-bulk-manager/v1/plugins"
+    },
+    "crud_create": {
+      "status": "passed",
+      "page_id": 2535
+    },
+    "crud_read": {
+      "status": "passed"
+    },
+    "crud_update": {
+      "status": "passed"
+    },
+    "crud_delete": {
+      "status": "passed"
+    },
+    "seo": {
+      "status": "failed",
+      "error": "404 Client Error: Not Found for url: https://derekzar.com/wp-json/wpbm/v1/wp-json/wp-bulk-manager/v1/seo/status"
+    },
+    "media": {
+      "status": "failed",
+      "error": "404 Client Error: Not Found for url: https://derekzar.com/wp-json/wpbm/v1/media?limit=10"
+    }
+  }
+}
