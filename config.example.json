@@ -1,5 +1,12 @@
 {
-  "sites": [],
+  "sites": [
+    {
+      "name": "Example Site",
+      "url": "https://example.com",
+      "api_key": "${WORDPRESS_API_KEY}",
+      "added": "2025-01-15T10:00:00Z"
+    }
+  ],
   "features": {
     "seo": true,
     "schema": true,

@@ -72,6 +72,19 @@ health-check-*.log
 api_keys.txt
 credentials.json
 secrets.json
+config.json
+.env*
+*_secrets.py
+*_keys.py
+
+# Generated API key files  
+*api_key*
+*secret*
+*token*
+
+# Personal configuration (use config.example.json as template)
+config.personal.json
+config.local.json
 
 # Build artifacts
 dist/
