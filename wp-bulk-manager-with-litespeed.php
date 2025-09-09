@@ -3,7 +3,7 @@
  * Plugin Name: WP Bulk Manager Enhanced with LiteSpeed
  * Plugin URI: https://github.com/derek-opdee/wp-bulk-manager-enhanced
  * Description: Complete WordPress management system with SEO, Schema.org, and LiteSpeed Cache management
- * Version: 2.1.0
+ * Version: 2.2.0
  * Author: Derek Zar - Opdee Digital
  * Author URI: https://opdee.com
  * License: GPL v2 or later
@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('WPBM_VERSION', '2.1.0');
+define('WPBM_VERSION', '2.2.0');
 define('WPBM_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WPBM_PLUGIN_URL', plugin_dir_url(__FILE__));
 
@@ -28,6 +28,7 @@ class WP_Bulk_Manager_Enhanced {
     private static $instance = null;
     private $api_key = null;
     private $litespeed_available = false;
+    private $perfmatters_available = false;
     
     /**
      * Get singleton instance
@@ -73,6 +74,9 @@ class WP_Bulk_Manager_Enhanced {
         
         // Check if LiteSpeed Cache is available
         $this->litespeed_available = defined('LSCWP_V') || class_exists('LiteSpeed\Core');
+        
+        // Check if Perfmatters is available
+        $this->perfmatters_available = function_exists('perfmatters_init') || class_exists('Perfmatters\Config');
     }
     
     /**
@@ -167,6 +171,25 @@ class WP_Bulk_Manager_Enhanced {
         register_rest_route($namespace, '/litespeed/optimize', [
             'methods' => 'POST',
             'callback' => [$this, 'optimize_litespeed_settings'],
+            'permission_callback' => [$this, 'check_api_permission']
+        ]);
+        
+        // Perfmatters endpoints
+        register_rest_route($namespace, '/perfmatters/status', [
+            'methods' => 'GET',
+            'callback' => [$this, 'get_perfmatters_status'],
+            'permission_callback' => [$this, 'check_api_permission']
+        ]);
+        
+        register_rest_route($namespace, '/perfmatters/settings', [
+            'methods' => 'GET',
+            'callback' => [$this, 'get_perfmatters_settings'],
+            'permission_callback' => [$this, 'check_api_permission']
+        ]);
+        
+        register_rest_route($namespace, '/cache/enable', [
+            'methods' => 'POST',
+            'callback' => [$this, 'enable_coordinated_cache'],
             'permission_callback' => [$this, 'check_api_permission']
         ]);
         
@@ -320,7 +343,7 @@ class WP_Bulk_Manager_Enhanced {
     }
     
     /**
-     * Optimize LiteSpeed settings
+     * Optimize LiteSpeed settings (cache-only, no CSS/JS due to Perfmatters)
      */
     public function optimize_litespeed_settings($request) {
         if (!$this->litespeed_available) {
@@ -331,39 +354,133 @@ class WP_Bulk_Manager_Enhanced {
         
         $settings = get_option('litespeed.conf', []);
         
-        // Apply optimizations based on level
+        // Apply cache-only optimizations (avoid CSS/JS conflicts with Perfmatters)
         switch ($optimizations) {
             case 'aggressive':
+                $settings['cache'] = 1;
                 $settings['cache-browser'] = 1;
                 $settings['cache-mobile'] = 1;
-                $settings['css_minify'] = 1;
-                $settings['css_combine'] = 1;
-                $settings['js_minify'] = 1;
-                $settings['js_combine'] = 1;
+                $settings['cache-login_cookie'] = 1;
                 $settings['media-webp_replace'] = 1;
-                $settings['optm-css_async'] = 1;
-                $settings['optm-js_defer'] = 1;
+                // Skip CSS/JS minification - handled by Perfmatters
                 break;
                 
             case 'conservative':
+                $settings['cache'] = 1;
                 $settings['cache-browser'] = 1;
-                $settings['css_minify'] = 1;
-                $settings['js_minify'] = 1;
                 $settings['media-webp_replace'] = 1;
                 break;
                 
             default: // standard
+                $settings['cache'] = 1;
                 $settings['cache-browser'] = 1;
-                $settings['css_minify'] = 1;
-                $settings['js_minify'] = 1;
                 break;
         }
         
         update_option('litespeed.conf', $settings);
         
         return new WP_REST_Response([
-            'message' => 'LiteSpeed settings optimized successfully',
+            'message' => 'LiteSpeed cache settings optimized (CSS/JS handled by Perfmatters)',
             'level' => $optimizations
+        ], 200);
+    }
+    
+    /**
+     * Get Perfmatters status
+     */
+    public function get_perfmatters_status($request) {
+        if (!$this->perfmatters_available) {
+            return new WP_Error('perfmatters_not_available', 'Perfmatters plugin not installed or active', ['status' => 404]);
+        }
+        
+        $perfmatters_options = get_option('perfmatters_options', []);
+        
+        $status = [
+            'plugin_active' => true,
+            'version' => defined('PERFMATTERS_VERSION') ? PERFMATTERS_VERSION : 'Unknown',
+            'disable_emojis' => !empty($perfmatters_options['disable_emojis']),
+            'disable_embeds' => !empty($perfmatters_options['disable_embeds']),
+            'remove_query_strings' => !empty($perfmatters_options['remove_query_strings']),
+            'disable_google_fonts' => !empty($perfmatters_options['disable_google_fonts']),
+            'preload_critical_images' => !empty($perfmatters_options['preload_critical_images']),
+            'lazy_loading_images' => !empty($perfmatters_options['lazy_loading_images']),
+            'minify_html' => !empty($perfmatters_options['minify_html']),
+            'minify_css' => !empty($perfmatters_options['minify_css']),
+            'minify_javascript' => !empty($perfmatters_options['minify_javascript'])
+        ];
+        
+        return new WP_REST_Response($status, 200);
+    }
+    
+    /**
+     * Get Perfmatters settings (sanitized)
+     */
+    public function get_perfmatters_settings($request) {
+        if (!$this->perfmatters_available) {
+            return new WP_Error('perfmatters_not_available', 'Perfmatters plugin not installed or active', ['status' => 404]);
+        }
+        
+        $settings = get_option('perfmatters_options', []);
+        
+        // Return sanitized settings (remove sensitive data)
+        $safe_settings = [];
+        $allowed_keys = [
+            'disable_emojis', 'disable_embeds', 'remove_query_strings',
+            'disable_google_fonts', 'preload_critical_images', 'lazy_loading_images',
+            'minify_html', 'minify_css', 'minify_javascript',
+            'disable_comments', 'limit_comments', 'remove_comment_urls',
+            'disable_rss_feeds', 'disable_xml_rpc', 'remove_shortlinks'
+        ];
+        
+        foreach ($allowed_keys as $key) {
+            if (isset($settings[$key])) {
+                $safe_settings[$key] = $settings[$key];
+            }
+        }
+        
+        return new WP_REST_Response($safe_settings, 200);
+    }
+    
+    /**
+     * Enable coordinated caching (LiteSpeed + Perfmatters coordination)
+     */
+    public function enable_coordinated_cache($request) {
+        $results = [];
+        
+        // Enable LiteSpeed Cache (cache-only, no CSS/JS optimization)
+        if ($this->litespeed_available) {
+            $ls_settings = get_option('litespeed.conf', []);
+            $ls_settings['cache'] = 1;
+            $ls_settings['cache-browser'] = 1;
+            $ls_settings['cache-mobile'] = 1;
+            // Explicitly disable CSS/JS optimization in LiteSpeed
+            $ls_settings['css_minify'] = 0;
+            $ls_settings['js_minify'] = 0;
+            $ls_settings['css_combine'] = 0;
+            $ls_settings['js_combine'] = 0;
+            
+            update_option('litespeed.conf', $ls_settings);
+            $results['litespeed'] = 'Cache enabled, CSS/JS optimization disabled';
+        } else {
+            $results['litespeed'] = 'Not available';
+        }
+        
+        // Verify Perfmatters handles CSS/JS optimization
+        if ($this->perfmatters_available) {
+            $pm_options = get_option('perfmatters_options', []);
+            $results['perfmatters'] = [
+                'css_optimization' => !empty($pm_options['minify_css']) ? 'enabled' : 'disabled',
+                'js_optimization' => !empty($pm_options['minify_javascript']) ? 'enabled' : 'disabled',
+                'status' => 'Handling CSS/JS optimization'
+            ];
+        } else {
+            $results['perfmatters'] = 'Not available';
+        }
+        
+        return new WP_REST_Response([
+            'message' => 'Coordinated caching enabled',
+            'details' => $results,
+            'recommendation' => 'LiteSpeed handles caching, Perfmatters handles CSS/JS optimization'
         ], 200);
     }
     
@@ -610,7 +727,9 @@ class WP_Bulk_Manager_Enhanced {
             'memory_limit' => WP_MEMORY_LIMIT,
             'debug_mode' => WP_DEBUG,
             'litespeed_available' => $this->litespeed_available,
-            'litespeed_version' => defined('LSCWP_V') ? LSCWP_V : null
+            'litespeed_version' => defined('LSCWP_V') ? LSCWP_V : null,
+            'perfmatters_available' => $this->perfmatters_available,
+            'perfmatters_version' => defined('PERFMATTERS_VERSION') ? PERFMATTERS_VERSION : null
         ], 200);
     }
     
